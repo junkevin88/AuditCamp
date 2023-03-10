@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// socialite
+Route::get('/sign-in-google', [UserController::class, 'google'])->name('user.login.google');
+
+Route::get('/auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
 require __DIR__ . '/auth.php';
