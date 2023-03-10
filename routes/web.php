@@ -24,9 +24,11 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/checkout', function () {
+
+Route::get('/checkout/{camp:slug}', function () {
     return view('checkout');
 })->name('checkout');
+
 
 Route::get('/success-checkout', function () {
     return view('success_checkout');
