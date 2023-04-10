@@ -25,8 +25,8 @@ Route::get('/login', function () {
 })->name('login');
 
 
-Route::get('/checkout/{camp:slug}', function () {
-    return view('checkout');
+Route::get('/checkout/{camp:slug}', function (App\Models\Camp $camp) {
+    return view('checkout', ['camp' => $camp]);
 })->name('checkout');
 
 
