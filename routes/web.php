@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Models\Camp;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\User\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +28,7 @@ Route::get('/login', function () {
 })->name('login');
 
 
-Route::get('/checkout/{camp:slug}', function () {
-    return view('checkout');
-})->name('checkout');
+Route::get('checkout/{camp:slug}', [CheckoutController::class, 'create'])->name('checkout.create');
 
 
 Route::get('/success-checkout', function () {
